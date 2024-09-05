@@ -27,4 +27,13 @@ class Calculator:
             # If we are not supplied with a delimiter pattern use the default , or \n
             numbers_copy = re.split(Calculator.default_delimiter_pattern, numbers_copy)
         # Split the string by commas, convert each part to int, and sum them up
+        # Negative numbers if found must be tracked and an exception must be raised.
+        detected_negative_numbers = []
+        for num in numbers_copy:
+            int_casted_number = int(num)
+            if int_casted_number < 0:
+                detected_negative_numbers.append(num)
+        if len(detected_negative_numbers) > 0:
+            error_message = "negative numbers not allowed "+(" ".join(detected_negative_numbers)) + "."
+            raise ValueError(error_message)
         return sum(int(num) for num in numbers_copy if num.strip())
