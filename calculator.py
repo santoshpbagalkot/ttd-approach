@@ -3,8 +3,5 @@ class Calculator:
         numbers_copy = numbers.strip()
         if not numbers_copy:
             return 0
-        numbers_array = numbers_copy.split(',')
-        if len(numbers_array) == 1:
-            return int(numbers_array[0])
-        else:
-            return (int(numbers_array[0]) + int(numbers_array[1]))
+        # Split the string by commas, convert each part to int, and sum them up
+        return sum(int(num) for num in numbers_copy.split(',') if num.strip())

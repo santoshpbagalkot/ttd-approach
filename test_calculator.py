@@ -22,3 +22,7 @@ class TestCalculatorAdd(unittest.TestCase):
     def test_sum_of_two_numbers(self):
         calc_obj = Calculator()
         self.assertEqual(calc_obj.add("1,5"), 6)
+
+    def test_sum_of_multiple_numbers(self):
+        calc_obj = Calculator()
+        self.assertEqual(calc_obj.add("1,5,10, 4"), 20)
