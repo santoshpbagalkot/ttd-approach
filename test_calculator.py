@@ -26,3 +26,7 @@ class TestCalculatorAdd(unittest.TestCase):
     def test_sum_of_multiple_numbers(self):
         calc_obj = Calculator()
         self.assertEqual(calc_obj.add("1,5,10, 4"), 20)
+
+    def test_sum_of_numbers_with_couma_or_newline_separators(self):
+            calc_obj = Calculator()
+            self.assertEqual(calc_obj.add("1\n5,6, 4"), 16)
