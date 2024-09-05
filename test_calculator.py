@@ -34,3 +34,8 @@ class TestCalculatorAdd(unittest.TestCase):
     def test_sum_of_numbers_with_custom_delimiter_pattern(self):
             calc_obj = Calculator()
             self.assertEqual(calc_obj.add("//;\n1;5;6; 4"), 16)
+
+    def test_negative_numbers_raise_error(self):
+        calc_obj = Calculator()
+        with self.assertRaises(ValueError) as context:
+            calc_obj.add("//;\n1;5;-6; -4")
